@@ -17,14 +17,15 @@ button {
     padding: 10px;
     border-radius: .5rem;
     background: white;
-    border: 2px teal outset;
+    border: 2px rgb(104, 110, 110) outset;
     font-size: 1rem;
     font-weight: 600;
-    color: teal;
+    color: rgb(74, 82, 82);
+    transition: 100ms;
 }
 
 button:hover {
     cursor: pointer;
-    background: teal;
+    background: rgb(74, 82, 82);
     color: white;
 }

@@ -4,7 +4,6 @@ import { Card } from 'semantic-ui-react'
 
 
 const SmurfList = ({ smurfs }) => {
-    console.log(smurfs);
     return (
         <div className='smurf-list'>
             <Card.Group centered>

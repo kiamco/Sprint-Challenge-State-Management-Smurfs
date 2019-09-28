@@ -7,7 +7,7 @@ export const fetchSmurf = () => {
         // setTimeout(()=> {}, 2000)
         Axios.get('http://localhost:3333/smurfs')
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 dispatch({ type: FETCH_SMURF, payload: res.data });
             })
             .catch(err => console.log(err));
@@ -18,7 +18,6 @@ export const addSmurf = (smurfObj) => {
     return function(dispatch) {
         Axios.post('http://localhost:3333/smurfs', smurfObj)
             .then((res) => {
-                console.log(res)
                 dispatch({
                     type: ADD_SMURF,
                     payload: smurfObj
