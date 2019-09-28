@@ -1,16 +1,39 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
+import { connect } from 'react-redux';
+import { fetchSmurf, addSmurf } from '../actions/index';
+import SmurfForm from './smurfForm';
 import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
+import 'semantic-ui-css/semantic.min.css'
+import SmurfList from './smurfList'
+
+const App = ({ fetchSmurf, addSmurf, smurf }) => {
+
+  useEffect(() => {
+    fetchSmurf();
+  }, [fetchSmurf]);
+
+  const addSomeSmurf = (item) => {
+    addSmurf(item);
   }
+  return (
+    <div className="App">
+      <h1>SMURFS! 2.0 W/ Redux</h1>
+      <SmurfForm addSmurf={addSomeSmurf} />
+      <SmurfList smurfs={smurf} />
+    </div>
+  );
 }
 
-export default App;
+const mapToStateprops = state => {
+  return {
+    smurf: state || []
+  };
+}
+
+
+export default connect(
+  mapToStateprops,
+  {
+    fetchSmurf,
+    addSmurf
+  })(App);
